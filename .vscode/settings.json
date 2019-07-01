@@ -4,4 +4,7 @@
     "python.linting.enabled": true,
     "python.linting.pep8Enabled": true,
     "python.linting.pydocstyleEnabled": true,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wrappingIndent": "same",
+    "editor.wordWrapColumn": 80
 }
