@@ -52,7 +52,7 @@ def main():
         if try_again.lower() == "n":
             break
 
-        print("\nPress Enter to exit")
+        print("\nPress Enter To exit")
 
 if __name__ == "__main__":
     main()
