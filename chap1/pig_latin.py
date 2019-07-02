@@ -1,6 +1,6 @@
 """Pig Latin converter."""
-input_sentence = input("Enter the sentence you want to translate to Pig Latin:
-                ")
+input_sentence = input("""Enter the sentence you
+                        want to translate to Pig Latin: """)
 input_array = input_sentence.split()
 result_array = []
 
