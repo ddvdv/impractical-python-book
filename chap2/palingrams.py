@@ -2,23 +2,22 @@
 
 import load_dictionary
 
-dictionnary = load_dictionary.load('2of4brif.txt')
-palingrams = []
+word_list = load_dictionary.load('chap2/2of4brif.txt')
 
-for word in dictionnary:
-    if len(word) > 1:
-        for i in range(0, len(word)):
-            if word[0:i:-1] in dictionnary and word[i:] == word[i::-1]:
-                print(word)
-                palingrams.append(word)
+# find word-pair palingrams
+def find_palingrams():
+    """Find dictionary palingrams."""
+    pali_list = []
+    for word in word_list:
+        end = len(word)
+        rev_word = word[::-1]
+        if end > 1:
+            for i in range(end):
+                if word[i:] == rev_word[:end-i] and rev_word[end-i:] in word_list:
+                    pali_list.append((word, rev_word[end-i:]))
+                if word[:i] == rev_word[end-i:] and rev_word[:end-i] in word_list:
+                    pali_list.append((rev_word[:end-1], word))
+    return pali_list
 
-""" 
-    if lengt >1
-        for letter in word
-            if first part in list and second part lindrom
-                append wod to list
-            if reverse word at the end of the word and first part palindrom
-                append word t list """
-
-palingrams_sorted = palingrams.sort()
-print(palingrams_sorted)
+palingrams = find_palingrams()
+pprint(palingrams)

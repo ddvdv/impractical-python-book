@@ -2,7 +2,7 @@
 
 import load_dictionary
 
-dictionnary = load_dictionary.load('2of4brif.txt')
+dictionnary = load_dictionary.load('chap2/2of4brif.txt')
 palindromes = []
 
 for word in dictionnary:

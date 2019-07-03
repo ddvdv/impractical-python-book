@@ -22,6 +22,3 @@ def load(file):
     except IOError as e:
         print(f"{e}\nError opening {file}")
         sys.exit(1)
-
-if __name__ == "__main__":
-    load("./chap2/2of4brif.txt")
