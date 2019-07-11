@@ -13,7 +13,7 @@ ini_name = input("Enter a name: ")
 def find_anagrams(name, word_list):
     """Read name & dictionnary file & display all anagrams IN name."""
     name_letter_map = Counter(name)
-    anamgrams = []
+    anagrams = []
     for word in word_list:
         test = ""
         word_letter_map = Counter(word.lower())
@@ -21,12 +21,12 @@ def find_anagrams(name, word_list):
             if word_letter_map[letter] <= name_letter_map[letter]:
                 test += letter
             if Counter(test) == word_letter_map:
-                anamgrams.append(word)
-    print(*anamgrams, sep='\n')
+                anagrams.append(word)
+    print(*anagrams, sep='\n')
     print()
     print('Remaining letters = {}'.format(name))
     print("Number of remaining letters = {}".format(len(name)))
-    print("Number of remaining (real word) anagrams = {}".format(len(anamgrams)))
+    print("Number of remaining (real word) anagrams = {}".format(len(anagrams)))
 
 
 def process_choice(name):
@@ -39,16 +39,17 @@ def process_choice(name):
             sys.exit()
         else:
             candidate = ''.join(choice.lower().split())
-            left_over_list = list(name)
-            for letter in candidate:
-                if letter in left_over_list:
-                    left_over_list.remove(letter)
-                if len(name) - len(left_over_list) == len(candidate):
-                    break
-                else:
-                    print("Won't work! Make another choice!", file=sys.stderr)
-        name = "".join(left_over_list)  # make display more readble
-        return choice, name
+        left_over_list = list(name)
+        for letter in candidate:
+            if letter in left_over_list:
+                left_over_list.remove(letter)
+        if len(name) - len(left_over_list) == len(candidate):
+            break
+        else:
+            print("Won't work! Make another choice!", file=sys.stderr)
+    name = "".join(left_over_list)  # make display more readble
+    return choice, name
+
 
 def main():
     """Help user build anagram phrase from their name."""
